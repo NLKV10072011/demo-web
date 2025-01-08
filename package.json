@@ -1,1 +1,16 @@
-[]
+{
+    "name": "82",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",  // Hoặc "client/server.js" nếu server.js trong thư mục client
+    "scripts": {
+      "start": "node server.js"  // Hoặc "node client/server.js" nếu server.js trong thư mục client
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "engines": {
+      "node": ">=14.0.0"  // Chỉ định phiên bản Node.js cần sử dụng (nếu cần thiết)
+    }
+  }
+  
