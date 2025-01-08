@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* CSS cho giao diện đăng ký */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .auth-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .auth-form h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 40px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .switch-to-login {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .switch-to-login a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .switch-to-login a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <h1>Trường THCS Trần Đại Nghĩa</h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="auth-container">
+    <div class="auth-form">
+      <h2>Đăng Ký</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="name">Họ và Tên</label>
+          <input type="text" id="name" required placeholder="Nhập họ và tên">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="Nhập email">
+        </div>
+        <div class="form-group">
+          <label for="password">Mật Khẩu</label>
+          <input type="password" id="password" required placeholder="Nhập mật khẩu">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Xác Nhận Mật Khẩu</label>
+          <input type="password" id="confirmPassword" required placeholder="Nhập lại mật khẩu">
+        </div>
+        <div class="form-group">
+          <label for="role">Vai Trò</label>
+          <select id="role" onchange="toggleTeacherPasswordField()">
+            <option value="student">Học Sinh</option>
+            <option value="teacher">Giáo Viên</option>
+          </select>
+        </div>
+        <div class="form-group" id="teacherPasswordGroup" style="display:none;">
+          <label for="teacherPassword">Mật Mã Giáo Viên</label>
+          <input type="password" id="teacherPassword" placeholder="Nhập mật mã giáo viên">
+        </div>
+        <button type="submit" class="btn primary-btn">Đăng Ký</button>
+      </form>
+      <p class="switch-to-login">Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Trường THCS Trần Đại Nghĩa</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+    // JavaScript để hiển thị/ẩn trường mật mã giáo viên khi chọn vai trò "Giáo Viên"
+    function toggleTeacherPasswordField() {
+      var role = document.getElementById("role").value;
+      var teacherPasswordGroup = document.getElementById("teacherPasswordGroup");
+      
+      // Hiển thị hoặc ẩn trường nhập mật mã giáo viên tùy theo vai trò
+      if (role === "teacher") {
+        teacherPasswordGroup.style.display = "block";
+      } else {
+        teacherPasswordGroup.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
